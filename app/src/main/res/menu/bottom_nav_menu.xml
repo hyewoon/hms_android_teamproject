@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--
+        showAsAction : 보이는 설정
+        always => 항상 보이게 처리
+        never => 안보이게 처리
+        ifRoom => 공간이 있을때 보이게 처리
+    -->
+
+    <item
+        android:id="@+id/btm_item1"
+        android:icon="@drawable/icon_home"
+        android:enabled="true"
+        android:title="홈"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/btm_item2"
+        android:icon="@drawable/icon_reservation"
+        android:enabled="true"
+        android:title="예약"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/btm_item3"
+        android:icon="@drawable/icon_search_menu"
+        android:enabled="true"
+        android:title="위치"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/btm_item4"
+        android:icon="@drawable/icon_account"
+        android:enabled="true"
+        android:title="마이메뉴"
+        app:showAsAction="ifRoom"/>
+</menu>

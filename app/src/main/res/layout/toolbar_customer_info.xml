@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    app:contentInsetStart="0dp">
+
+    <!-- 상단메뉴바 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <!-- 뒤로가기 -->
+        <ImageView
+            android:id="@+id/iv_left"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_back2"/>
+        <!-- 로고 -->
+        <LinearLayout
+            android:id="@+id/ll_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tv_page"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="페이지명"
+                android:textColor="@color/main_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <!-- 홈으로 -->
+        <ImageView
+            android:id="@+id/imgv_home"
+            android:src="@drawable/logo"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

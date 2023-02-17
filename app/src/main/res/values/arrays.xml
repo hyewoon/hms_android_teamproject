@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ward">
+        <item>501호</item>
+        <item>502호</item>
+        <item>503호</item>
+        <item>504호</item>
+        <item>505호</item>
+        <item>601호</item>
+        <item>602호</item>
+        <item>603호</item>
+        <item>604호</item>
+        <item>605호</item>
+        <item>701호</item>
+        <item>702호</item>
+        <item>703호</item>
+        <item>704호</item>
+        <item>705호</item>
+    </string-array>
+    <string-array name="department">
+        <item>전체</item>
+        <item>심장내과</item>
+        <item>소화기내과</item>
+        <item>신장내과</item>
+        <item>소아청소년과</item>
+        <item>외과</item>
+        <item>흉부외과</item>
+        <item>정형외과</item>
+        <item>신경과</item>
+        <item>치과</item>
+        <item>5병동</item>
+        <item>6병동</item>
+        <item>7병동</item>
+        <item>원무과</item>
+        <item>의사</item>
+        <item>간호사</item>
+    </string-array>
+</resources>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 카메라추가 -->
+    <uses-permission android:name="android.permission.CAMERA" /> <!-- 23. 01. 19 Jubin 기기번호 -->
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE"
+        android:maxSdkVersion="29" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_APN_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidHMS"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <receiver android:name=".staff.schedule.ScheduleAlarmReceiver"
+            android:exported="false"/>
+        <activity
+            android:name=".customer.info.qr.QrActivity"
+             android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.search.record.detailrecord.DetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".customer.info.DetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.appointment.AppointListActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".customer.join.PatientRegisterActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <service
+            android:name=".util.HmsFirebaseMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name=".staff.StaffMyPageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.search.record.detailrecord.DetailRecordActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".customer.join.CustomerCheckActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.ReceptionLoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".customer.CustomerLoginActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaoc1d3d1509c7d3139f08c5b05080e86d9" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".reception.search.appointment.DetailAppointmentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- qr스캐서 세로모드 적용 activity -->
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:stateNotNeeded="true"
+            tools:replace="android:screenOrientation" />
+        <activity
+            android:name=".reception.search.QrSacnnerActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.search.SearchActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".staff.outpatient.PrescriptionActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- <activity -->
+        <!-- android:name=".customer.CustomerLoginActivity" -->
+        <!-- android:exported="false"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.lib_name" -->
+        <!-- android:value="" /> -->
+        <!-- </activity> -->
+        <activity
+            android:name=".reception.appointment.AppointmentActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.search.SearchActivity"
+            android:exported="false"
+            tools:ignore="DuplicateActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".reception.ReceptionActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity> <!-- 고객 페이지 -->
+        <activity
+            android:name=".customer.hospital.acceptance.AcceptanceRecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.info.reservation.ReservationScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.info.medical.MedicalRecordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.info.card.CardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.info.myinfo.MyinfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.reservation.ReservationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".customer.CustomerActivity"
+            android:exported="false"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".customer.join.JoinActivity"
+            android:exported="false" /> <!-- 직원 페이지 -->
+        <activity
+            android:name=".staff.schedule.ScheduleActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".staff.outpatient.OutpatientActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".staff.ward.WardActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".staff.messenger.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".staff.messenger.MessengerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".staff.StaffActivity"
+            android:exported="false" />
+        <activity
+            android:name=".staff.StaffLoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".staff.lookup.LookupActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" /> <!-- 원무과 페이지 -->
+
+    </application>
+
+</manifest>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="@color/white"
+    app:contentInsetStart="0dp">
+
+    <!-- 상단메뉴바 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <!-- 뒤로가기 -->
+        <ImageView
+            android:id="@+id/imgv_before"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_back2"/>
+        <!-- 로고 -->
+        <LinearLayout
+            android:id="@+id/ll_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/logo" />
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="YM-hospital"
+                android:textColor="@color/main_color"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_not_checked_chat"
+            android:layout_width="25dp"
+            android:layout_height="20dp"
+            android:text="1"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:background="@drawable/box_round_second"
+            android:visibility="invisible"
+            android:layout_marginEnd="5dp"
+            android:layout_toLeftOf="@+id/imgv_messenger"
+            android:layout_centerVertical="true"/>
+
+        <ImageView
+            android:id="@+id/imgv_messenger"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/icon_message"/>
+    </RelativeLayout>
+</androidx.appcompat.widget.Toolbar>

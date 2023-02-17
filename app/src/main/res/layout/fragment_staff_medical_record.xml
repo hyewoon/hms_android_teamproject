@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightgray"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    tools:context=".staff.outpatient.MedicalRecordFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="날짜"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@drawable/box_round_lightgray"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+            <EditText
+                android:id="@+id/et_first_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gray"
+                android:drawableEnd="@drawable/icon_calendar_multiselect"
+                android:focusable="false"
+                android:inputType="date"
+                android:paddingStart="5dp"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:text="~"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_second_date"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gray"
+                android:drawableEnd="@drawable/icon_calendar_multiselect"
+                android:focusable="false"
+                android:inputType="date"
+                android:paddingStart="5dp"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="환자명"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@drawable/box_round_lightgray"
+            android:backgroundTint="@color/white"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:backgroundTint="@color/gray"
+                android:drawableEnd="@drawable/icon_search"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:paddingStart="5dp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgv_option"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:padding="5dp"
+            android:src="@drawable/icon_down"/>
+
+        <TextView
+            android:id="@+id/tv_option"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:text="상세 검색 옵션 보기"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:gravity="center_vertical"/>
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="@color/second_color"
+            android:text="검색"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_option"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/box_round_lightgray"
+        android:backgroundTint="@color/white"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
+            android:paddingVertical="10dp">
+
+            <RadioButton
+                android:id="@+id/rb_all_patient"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="진료 내역 전체 검색"/>
+
+            <RadioButton
+                android:id="@+id/rb_my_department"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="부서에서 진료받은 환자 진료 내역 검색"
+                android:layout_marginVertical="5dp"/>
+
+            <RadioButton
+                android:id="@+id/rb_my_patient"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="내가 진료한 환자 진료 내역 검색"/>
+
+        </RadioGroup>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/box_round_lightgray"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            android:paddingHorizontal="20dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:gravity="center"
+                android:text="진료날짜"
+                android:textColor="@color/main_color"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="환자명"
+                android:textColor="@color/main_color"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="진료의"
+                android:textColor="@color/main_color"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_medical_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp" />
+
+            <include android:id="@+id/rl_progress"
+                android:visibility="gone"
+                layout="@layout/view_progress_circle"/>
+
+            <include android:id="@+id/cl_notfound"
+                android:visibility="gone"
+                layout="@layout/view_notfound"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btn_memo"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="메모"
+            android:textSize="16dp"
+            android:layout_marginStart="5dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true" />
+
+        <Button
+            android:id="@+id/btn_record"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="처방전"
+            android:textSize="16dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

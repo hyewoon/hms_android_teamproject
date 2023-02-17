@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="department_list">
+        <item>진료과 선택</item>
+        <item>심장내과</item>
+        <item>소화기내과</item>
+        <item>신장내과</item>
+        <item>소아청소년과</item>
+        <item>외과</item>
+        <item>흉부외과</item>
+        <item>정형외과</item>
+        <item>신경과</item>
+        <item>치과</item>
+    </string-array>
+</resources>

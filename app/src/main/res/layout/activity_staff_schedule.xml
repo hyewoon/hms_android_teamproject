@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/lightgray"
+    tools:context=".staff.schedule.ScheduleActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_staff" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일정관리"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"/>
+
+        <Button
+            android:id="@+id/btn_preday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전날"
+            android:textSize="16dp"
+            android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/btn_nextday"/>
+
+        <Button
+            android:id="@+id/btn_nextday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다음날"
+            android:textSize="16dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/box_round_lightgray"
+        android:backgroundTint="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="날짜"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginEnd="15dp"/>
+
+        <EditText
+            android:id="@+id/et_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:drawableEnd="@drawable/icon_calendar_multiselect"
+            android:backgroundTint="@color/gray"
+            android:focusable="false"
+            android:inputType="date"
+            android:paddingStart="5dp"
+            android:textSize="16dp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/box_round_lightgray"
+            android:backgroundTint="@color/white"
+            android:padding="10dp" />
+
+        <include android:id="@+id/rl_progress"
+            android:visibility="gone"
+            layout="@layout/view_progress_circle"/>
+
+        <include android:id="@+id/cl_notfound"
+            android:visibility="gone"
+            layout="@layout/view_notfound"/>
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/box_round_lightgray"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="15dp"
+                android:gravity="center"
+                android:text="시각"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:backgroundTint="@color/gray"
+                android:drawableEnd="@drawable/icon_clock"
+                android:focusable="false"
+                android:inputType="date"
+                android:paddingStart="5dp"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/imgv_alarm"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:scaleType="center"
+                android:src="@drawable/icon_alarm_off"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="일정"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/gray" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="삭제"
+            android:textSize="16dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/btn_save"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="저장"
+            android:textSize="16dp"
+            android:backgroundTint="@color/second_color"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

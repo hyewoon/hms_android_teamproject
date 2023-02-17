@@ -1,0 +1,197 @@
+//fragment바인딩
+
+Hanul3QWER!@#$
+
+    <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recv_appointment"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
+
+public class HomeFragment extends Fragment {
+    FragmentHomeBinding bind;
+    //내가 선언한 이름으로
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+      bind = FragmentAppointBinding.inflate(inflater, container, false);
+      return bind.getRoot();
+    }
+    @Override
+        public void onDestroyView() {
+            super.onDestroyView();
+            bind = null;
+      }
+}
+
+//텍스트 사이즈
+
+네비게이션 20dp
+타이틀 24dp
+하위항목 20dp
+내용 16dp
+
+
+//컬러
+
+main_color
+second_color
+white
+text_color
+
+//프래그먼트에서  binding 사용
+public class SearchFragment extends Fragment {
+
+    FragmentReceptionSearchBinding bind;
+    ArrayList<PatientVO> plist;
+
+     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+         bind = FragmentReceptionSearchBinding.inflate(inflater,container,false);
+
+
+        return bind.getRoot() ;
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        bind = null;
+    }
+
+}
+
+
+======어댑터 연결
+   if(list == null || list.size() == 0 ){
+                            bind.cardvAppointmentList.setVisibility(View.INVISIBLE);
+                        }else{
+
+                        bind.cardvAppointmentList.setVisibility(View.VISIBLE);
+                        bind.recvAppointmentList.setAdapter(new AppointmentAdapter(getLayoutInflater(),list, AppointmentActivity.this));
+                        bind.recvAppointmentList.setLayoutManager(new LinearLayoutManager(AppointmentActivity.this, RecyclerView.VERTICAL, false));
+                        }
+   프래그먼트에서 연결                      \
+     bind.recvAppointmentList.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+  액티비티에서 연결
+      bind.recvAppointmentList.setLayoutManager(new LinearLayoutManager(AppointmentActivity.this, RecyclerView.VERTICAL, false));*/
+
+===액티비티와 프레그먼트 연결
+
+액티비티끼리는 intent
+액티비티 프레그먼트는 값이 list, dto형태 bundle에 담아서 연결
+ Bundle bundle = new Bundle();
+                            //bundle.putInt("int", 0);
+                            bundle.putSerializable("list", list);
+                            AppointListFragment fragment = new AppointListFragment();
+                            fragment.setArguments(bundle);
+                            getSupportFragmentManager().beginTransaction().replace(R.id.fl_appoint, fragment).commit();
+
+프래그먼트에서 받는처리
+  Bundle bundle = getArguments();
+        list = (ArrayList<MedicalReceiptVO>) bundle.getSerializable("list");
+
+=====
+어댑터에서 색상 받아오는 방법
+   h.bind.tvDepartment.setTextColor(ContextCompat.getColor(activity.getContext(), R.color.gray));
+            h.bind.tvDoctorName.setTextColor(ContextCompat.getColor(activity.getContext(), R.color.gray));
+
+===========================
+ 입원정보
+  <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+              <TextView
+                  android:layout_marginLeft="20dp"
+                  android:textStyle="bold"
+                  android:padding="5dp"
+                  android:text="입원정보"
+                  android:layout_marginRight="10dp"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="501"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="병동"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="4"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="배드 "
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="심장내과"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:layout_marginRight="10dp"
+                  android:text="남경선"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+              <TextView
+                  android:text="교수"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"/>
+          </LinearLayout>
+
+==================================
+tab레이아웃 에 텍스트 넣기
+ mainactivity에서 넣으면 nullpoint exception발생 대신
+ xml파일에서 tabItem 속성으로 넣기
+        bind.tabLayout.addTab(new TabLayout.Tab().setText("3개월"));
+        bind.tabLayout.addTab(new TabLayout.Tab().setText("6개월"));
+        bind.tabLayout.addTab(new TabLayout.Tab().setText("1년"));
+
+        ===========================         SimpleDateFormat transform =new SimpleDateFormat("yyyy.mm.dd");
+                                                       try {
+                                                           Date date1 = transform.parse(date);
+
+                                                           Calendar cal= Calendar.getInstance();
+                                                           cal.setTime(date1);
+                                                           cal.add(Calendar.YEAR, -1);
+                                                           Date  ndate = new Date(cal.getTimeInMillis());
+                                                           Log.d("로그", "onDateSet: " + new Date() + "현재시간");
+                                                           Log.d("로그", "onDateSet: " + ndate + "과거시간");
+                                                       } catch (ParseException e) {
+                                                           e.printStackTrace();
+                                                       }
+
+
+
+                                        if(list == null || list.size() == 0 ){
+                                            bind.cardvAppointmentList.setVisibility(View.INVISIBLE);
+                                            Toast.makeText(AppointmentActivity.this, "오늘 예약이 없습니다", Toast.LENGTH_SHORT).show();
+                                            bind.tvCountAll.setVisibility(View.INVISIBLE);
+                                            bind.tvCountWaiting.setVisibility(View.INVISIBLE);
+                                        }else if(){
+                                            bind.cardvAppointmentList.setVisibility(View.VISIBLE);
+                                            bind.recvAppointmentList.setAdapter(new AppointmentAdapter(getLayoutInflater(),list, AppointmentActivity.this));
+                                            bind.recvAppointmentList.setLayoutManager(new LinearLayoutManager(AppointmentActivity.this, RecyclerView.VERTICAL, false));
+                                            //int all= list.size();
+                                            //Log.d("로그", "onDateSet: " +list.size() );
+                                            bind.tvCountAll.setText(list.size() + "");
+                                            int count = 0 ;
+                                            for(int i = 0  ; i <list.size() ; i ++){
+                                                if(list.get(i).getReserve_time_count().compareTo(list.get(i).getCurrent_time()) > 0) {
+                                                    count ++ ;
+                                                }
+                                            }
+                                            bind.tvCountWaiting.setText(count+"");
+                                        }
+                            });
+
+                                public void changeFragment(Fragment fragment){
+                                    getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment).commit();
+                                }
